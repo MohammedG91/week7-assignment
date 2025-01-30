@@ -53,7 +53,7 @@ app.get("/familyMessages", async (req, res) => {
 //adding a route to READ messages from friends in the database
 app.get("/friendsMessages", async (req, res) => {
   const result = await db.query(
-    `SSELECT * FROM wedding WHERE relationship = 'Friend';`
+    `SELECT * FROM wedding WHERE relationship = 'Friend';`
   );
   await res.json(result.rows);
 });
