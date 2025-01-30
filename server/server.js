@@ -35,21 +35,37 @@ export const db = new pg.Pool({
   connectionString: dbConnectionString,
 });
 
-//adding a route to READ from the database.
+//adding a route to READ  from the database.
 
 app.get("/messages", async (req, res) => {
-  const result = await db.query(`SELECT * FROM enterTableName`);
+  const result = await db.query(`SELECT * FROM wedding`);
   await res.json(result.rows);
 });
 
-//adding a route to CREATE NEW data in the databse and extracting name and message from the enterTableName
+//adding a route to READ messages from family in the database
+app.get("/familyMessages", async (req, res) => {
+  const result = await db.query(
+    `SELECT * FROM wedding WHERE relationship = 'Family';`
+  );
+  await res.json(result.rows);
+});
+
+//adding a route to READ messages from friends in the database
+app.get("/friendsMessages", async (req, res) => {
+  const result = await db.query(
+    `SSELECT * FROM wedding WHERE relationship = 'Friend';`
+  );
+  await res.json(result.rows);
+});
+
+//adding a route to CREATE NEW data in the databse and extracting name, relationship and message from the wedding table
 
 app.post("/new-data", async (req, res) => {
   const data = req.body.formValues;
   console.log("This is the req.body", req.body);
   const query = await db.query(
-    `INSERT INTO enterTableName (name, message) VALUES ($1, $2)`,
-    [data.name, data.message]
+    `INSERT INTO wedding (name,relationship, message) VALUES ($1, $2, $3)`,
+    [data.name, data.relationship, data.message]
   );
   await res.json(query.rows);
 });
