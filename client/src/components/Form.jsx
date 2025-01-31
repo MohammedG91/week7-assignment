@@ -16,6 +16,12 @@ export default function Form() {
 
   function handleSubmit(event) {
     event.preventDefault();
+
+    if (formValues.message !== "Friend" && formValues.message !== "Family") {
+      alert("Relationship must be either 'Friend' or 'Family'");
+      return;
+    }
+
     fetch("http://localhost:8080/new-data", {
       method: "POST",
       headers: {
@@ -68,17 +74,3 @@ export default function Form() {
     </>
   );
 }
-
-// function handleSubmitUsername(event) {
-//   event.preventDefault();
-//   let formData = { username: username };
-//   fetch("http://localhost:8080/newuser", {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//     body: JSON.stringify({ formData }),
-//   });
-//   console.log("Submitted data: ", formData);
-//   setUsername("");
-// }
