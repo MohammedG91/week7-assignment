@@ -61,11 +61,13 @@ app.get("/friendsMessages", async (req, res) => {
 //adding a route to CREATE NEW data in the databse and extracting name, relationship and message from the wedding table
 
 app.post("/new-data", async (req, res) => {
-  const data = req.body.formValues;
+  const { name, relationship, message } = req.body;
   console.log("This is the req.body", req.body);
+
   const query = await db.query(
-    `INSERT INTO wedding (name,relationship, message) VALUES ($1, $2, $3)`,
-    [data.name, data.relationship, data.message]
+    `INSERT INTO wedding (name, relationship, message) VALUES ($1, $2, $3)`,
+    [name, relationship, message]
   );
+
   await res.json(query.rows);
 });
