@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import Entries from "./components/Entries";
 import FamilyEntry from "./components/FamilyEntry";
 import FriendsEntry from "./components/FriendsEntry";
+import Form from "./components/Form";
 
 export default function App() {
   return (
@@ -13,6 +14,7 @@ export default function App() {
         <Route element={<FamilyEntry />} path={"/FamilyEntry"} />
         <Route element={<FriendsEntry />} path={"/FriendsEntry"} />
       </Routes>
+      <Form />
     </>
   );
 }
