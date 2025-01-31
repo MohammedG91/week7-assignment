@@ -17,7 +17,10 @@ export default function Form() {
   function handleSubmit(event) {
     event.preventDefault();
 
-    if (formValues.message !== "Friend" && formValues.message !== "Family") {
+    if (
+      formValues.relationship !== "Friend" &&
+      formValues.relationship !== "Family"
+    ) {
       alert("Relationship must be either 'Friend' or 'Family'");
       return;
     }
