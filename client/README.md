@@ -1,0 +1,1 @@
+Really enjoyable task. The only thing I struggled/struggling on is the doing a get request to and showing the data on the path I created. The endpoints have been made and are working correctly when I check the endpoint urls, but i'm not sure how to go about doing the get request and displaying it on the page.
