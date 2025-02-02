@@ -28,13 +28,25 @@ export default function Form() {
     fetch("http://localhost:8080/new-data", {
       method: "POST",
       headers: {
-        "content-type": "application/json",
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         name: formValues.name,
         relationship: formValues.relationship,
         message: formValues.message,
       }),
+    }).then((response) => {
+      if (response.ok) {
+        alert("Successfully submitted!");
+
+        setFormValues({
+          name: "",
+          relationship: "",
+          message: "",
+        });
+      } else {
+        alert("Error submitting the form. Please try again.");
+      }
     });
   }
 
@@ -43,7 +55,7 @@ export default function Form() {
       <h2 className="form-title">Wedding Message</h2>
       <form className="form" onSubmit={handleSubmit}>
         <label htmlFor="name" className="form-label">
-          Name:{" "}
+          Name:
         </label>
         <input
           type="text"
@@ -56,7 +68,7 @@ export default function Form() {
           value={formValues.name}
         />
         <label htmlFor="relationship" className="form-label">
-          Relationship:{" "}
+          Relationship:
         </label>
         <input
           type="text"
@@ -69,7 +81,7 @@ export default function Form() {
           value={formValues.relationship}
         />
         <label htmlFor="message" className="form-label">
-          Message:{" "}
+          Message:
         </label>
         <input
           type="text"
