@@ -1,7 +1,7 @@
 export default function FriendsEntries() {
   return (
-    <>
-      <h2>Friends Entries</h2>
-    </>
+    <div className="friends-entries-container">
+      <h2 className="friends-entries-title">Friends Entries</h2>
+    </div>
   );
 }

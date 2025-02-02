@@ -4,10 +4,11 @@ import Entries from "./components/Entries";
 import FamilyEntry from "./components/FamilyEntry";
 import FriendsEntry from "./components/FriendsEntry";
 import Form from "./components/Form";
+import "./App.css";
 
 export default function App() {
   return (
-    <>
+    <div className="app-container">
       <Header />
       <Routes>
         <Route element={<Entries />} path={"/Entries"} />
@@ -15,6 +16,6 @@ export default function App() {
         <Route element={<FriendsEntry />} path={"/FriendsEntry"} />
       </Routes>
       <Form />
-    </>
+    </div>
   );
 }

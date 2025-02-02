@@ -1,7 +1,7 @@
 export default function FamilyEntries() {
   return (
-    <>
-      <h2>Family Entries</h2>
-    </>
+    <div className="family-entries-container">
+      <h2 className="family-entries-title">Family Entries</h2>
+    </div>
   );
 }
