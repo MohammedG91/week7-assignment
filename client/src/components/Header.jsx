@@ -9,7 +9,7 @@ export default function Header() {
           Home
         </Link>
         <Link to={"/entries"} className="nav-link">
-          Entries
+          All Entries
         </Link>
         <Link to={"/familyentry"} className="nav-link">
           Family Entries
