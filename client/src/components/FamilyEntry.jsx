@@ -4,11 +4,17 @@ export default function FamilyEntries() {
   const [familyMessages, setFamilyMessages] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8080/familyMessages")
-      .then((response) => response.json())
-      .then((data) => {
+    async function fetchData() {
+      try {
+        const response = await fetch("http://localhost:8080/familyMessages");
+        const data = await response.json();
         setFamilyMessages(data);
-      });
+        console.log("Family messages fetched successfully!");
+      } catch {
+        console.log("Failed to fetch family messages!");
+      }
+    }
+    fetchData();
   }, []);
 
   return (

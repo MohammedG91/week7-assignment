@@ -4,11 +4,17 @@ export default function FriendsEntries() {
   const [friendsMessages, setFriendsMessages] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8080/friendsMessages")
-      .then((response) => response.json())
-      .then((data) => {
+    async function fetchData() {
+      try {
+        const response = await fetch("http://localhost:8080/friendsMessages");
+        const data = await response.json();
         setFriendsMessages(data);
-      });
+        console.log("Friends messages fetched successfully!");
+      } catch {
+        console.log("Failed to fetch friends messages!");
+      }
+    }
+    fetchData();
   }, []);
 
   return (
