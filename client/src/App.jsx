@@ -4,14 +4,14 @@ import Entries from "./components/Entries";
 import FamilyEntry from "./components/FamilyEntry";
 import FriendsEntry from "./components/FriendsEntry";
 import Form from "./components/Form";
-import Image from "./components/Image";
+import ImageCarousel from "./components/Image";
 import "./App.css";
 
 export default function App() {
   return (
     <div className="app-container">
       <Header />
-      <Image />
+      <ImageCarousel />
       <Routes>
         <Route element={<Entries />} path={"/Entries"} />
         <Route element={<FamilyEntry />} path={"/FamilyEntry"} />
