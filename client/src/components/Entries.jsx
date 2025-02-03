@@ -4,11 +4,17 @@ export default function Entries() {
   const [entries, setEntries] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8080/messages")
-      .then((response) => response.json())
-      .then((data) => {
+    async function fetchData() {
+      try {
+        const response = await fetch("http://localhost:8080/messages");
+        const data = await response.json();
         setEntries(data);
-      });
+        console.log("Entries fetched successfully!");
+      } catch {
+        console.log("Failed to fetch entries!");
+      }
+    }
+    fetchData();
   }, []);
 
   return (
